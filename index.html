@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="weatherApp">
+<head>
+  <meta charset="utf-8">
+  <title>The Weather App</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="js/app.js"></script>
+</head>
+
+<body ng-controller="weatherAppController">
+<p><input type="text" ng-model="unitIcon" ng-init="unitIcon= '\u00B0C'" ng-hide="true"></p>
+<div class="container">
+<div class="col-md-12">
+<h1>The Weather App</h1>
+  <form novalidate role="form" name="reqeustWeather">
+<div class="form-group">
+<label for="firstCity">Enter First City</label>
+<input type="text" name="request.firstCity" id="firstCity" ng-model="firstCity" class="form-control" placeholder="e.g. London UK" required>
+</div>
+
+<div class="form-group">
+<label for="secondCity">Enter Second City</label>
+<input type="text" name="request.seondCity" id="secondCity" ng-model="secondCity" class="form-control" placeholder="e.g Manchester UK" required>
+</div>
+
+<div class="form-group">
+<label for="thirdCity">Enter Third City</label>
+<input type="text" name="request.thirdCity" id="thirdCity" ng-model="thirdCity" class="form-control" placeholder="e.g. Sheffield UK" required>
+</div>
+
+<p><input type="text" ng-show="true" ng-model="baseUnit" ng-init="baseUnit= 'metric'" ng-hide="true"></p>
+
+<div class="row">
+<div class="col-sm-4">
+<div ng-model="view1" ng-show="view1 ==1">
+<p><strong>Temperatures for {{cityName}}</strong></p>
+
+<p>Current Weather: {{currentTemp + unitIcon}}</p>
+<p>Min Temp: {{minTemp + unitIcon}}</p>
+<p>Max Temp: {{maxTemp + unitIcon}}</p>
+</div>
+</div>
+
+<div class="col-sm-4">
+<div ng-model="view2" ng-show="view2 ==1">
+<p><strong>Temperatures for {{secondcityName}}</strong></p>
+<p>Current Weather: {{secondcurrentTemp + unitIcon}}</p>
+<p>Min Temp: {{secondminTemp + unitIcon}}</p>
+<p>Max Temp: {{secondmaxTemp + unitIcon}}</p>
+</div>
+</div>
+
+<div class="col-sm-4">
+<div ng-model="view3" ng-show="view3 ==1">
+<p><strong>Temperatures for {{thirdcityName}}</strong></p>
+<p>Current Weather: {{thirdcurrentTemp + unitIcon}}</p>
+<p>Min Temp: {{thirdminTemp + unitIcon}}</p>
+<p>Max Temp: {{thirdmaxTemp + unitIcon}}</p>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-12">
+<button type="submit" class="btn btn-success" ng-disabled="!firstCity" ng-click="submit(reqeustWeather)">Submit</button>
+<button ng-click="baseUnit = 'imperial'; unitIcon='&#x2109;'; submit(reqeustWeather)" class="btn btn-danger" ng-show="convBtn == 1">Convert Into Fahrenheit</button>
+</div>
+  </form>
+</div>
+</div>
+
+</body>
+
+<footer>
+</footer>
+</html>
