@@ -31,7 +31,7 @@ App.controller('weatherAppController', function($scope, $http) {
                $scope.currentTemp = currentTemp;
                $scope.minTemp = minTemp;
                $scope.maxTemp = maxTemp;
-               //$scope.cityName = res.data.main.name +", "+ res.data.main.country;
+              
                }
                 
             }
@@ -61,7 +61,7 @@ App.controller('weatherAppController', function($scope, $http) {
                $scope.secondcurrentTemp = res.data.main.temp ;
                $scope.secondminTemp = res.data.main.temp_min ;
                $scope.secondmaxTemp = res.data.main.temp_max ;
-               //$scope.cityName = res.data.main.name +", "+ res.data.main.country;
+               
                }
                 
             }
@@ -91,8 +91,7 @@ App.controller('weatherAppController', function($scope, $http) {
                $scope.thirdcurrentTemp = res.data.main.temp ;
                $scope.thirdminTemp = res.data.main.temp_min ;
                $scope.thirdmaxTemp = res.data.main.temp_max ;
-               //$scope.cityName = res.data.main.name +", "+ res.data.main.country;
-               }
+                              }
                 
             }
         });
